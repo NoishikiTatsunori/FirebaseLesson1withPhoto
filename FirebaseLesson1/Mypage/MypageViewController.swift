@@ -29,18 +29,7 @@ class MypageViewController: BaseViewController {
 extension MypageViewController {
     override func loadView() {
         super.loadView()
-        UserModel.readMe { (myself) in
-            self.myself = myself
-            self.emailLabel.text = myself.mail
-            self.passLabel.text = myself.password
-            if let url = URL(string: myself.photo_path ?? "") {
-                self.iconImageView.af_setImage(withURL: url)
-            } else {
-                self.iconImageView.image = UIImage(named: "no_icon")
-            }
-        }
-        
-        
+        getModel()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -67,6 +56,17 @@ extension MypageViewController {
 
 // MARK: - method
 extension MypageViewController {
-    
+    func getModel() {
+        UserModel.readMe { (myself) in
+            self.myself = myself
+            self.emailLabel.text = myself.mail
+            self.passLabel.text = myself.password
+            if let url = URL(string: myself.photo_path ?? "") {
+                self.iconImageView.af_setImage(withURL: url)
+            } else {
+                self.iconImageView.image = UIImage(named: "no_icon")
+            }
+        }
+    }
 }
 

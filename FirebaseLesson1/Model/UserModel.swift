@@ -161,6 +161,18 @@ extension UserModel {
                     success()
                 }
             }) {}
+        }
+        if let mail  = request.mail {
+            // emailの更新
+            Auth.auth().currentUser?.updateEmail(to: mail) { (error) in
+                print(error)
+            }
+        }
+        if let password = request.password {
+            // passwordの更新
+            Auth.auth().currentUser?.updatePassword(to: password) { (error) in
+                print(error)
+            }
         } else {
             DBRef.updateChildValues(param) { (error, query) in
                 success()

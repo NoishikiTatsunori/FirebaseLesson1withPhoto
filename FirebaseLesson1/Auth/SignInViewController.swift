@@ -24,6 +24,12 @@ class SignInViewController: BaseViewController {
             print("成功")
         }
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+
+    
     @IBAction func touchedSignUpButton(_ sender: UIButton) {
         let vc = SignUpViewController()
         navigationController?.pushViewController(vc, animated: true)
@@ -45,6 +51,7 @@ extension SignInViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
+    
 }
 
 // MARK: - Protocol

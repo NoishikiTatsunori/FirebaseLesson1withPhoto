@@ -25,6 +25,10 @@ class SignUpViewController: BaseViewController {
             print(error)
         }
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     @IBAction func touchedSignInButton(_ sender: UIButton) {
         let vc = SignInViewController()
         navigationController?.pushViewController(vc, animated: true)

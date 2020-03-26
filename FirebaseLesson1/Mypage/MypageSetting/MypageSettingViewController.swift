@@ -25,6 +25,8 @@ class MypageSettingViewController: BaseViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
     @IBAction func touchedDaneButton(_ sender: UIButton) {
+        myself.mail = emailTextField.text
+        myself.password = passTextField.text
         UserModel.update(request: myself, image: self.iconImageView.image) {
             self.dismiss(animated: true, completion: nil)
         }
@@ -40,8 +42,14 @@ class MypageSettingViewController: BaseViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    
     var myself: UserModel = UserModel()
 }
+
 
 // MARK: - Life cycle
 extension MypageSettingViewController {
