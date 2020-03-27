@@ -33,7 +33,7 @@ class SignUpViewController: BaseViewController {
                         case .invalidEmail:
                             self.showAlert("メールアドレスの形式が違います。")
                         case .emailAlreadyInUse:
-                            self.showAlert("このメールアドレスはすでに使われています。")
+                            self.showAlert("このメールアドレスは既に使われています。")
                         case .weakPassword:
                             self.showAlert("パスワードは6文字以上で入力してください。")
                         default:
