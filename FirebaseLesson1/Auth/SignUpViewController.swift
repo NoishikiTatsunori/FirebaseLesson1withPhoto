@@ -24,24 +24,25 @@ class SignUpViewController: BaseViewController {
             self.animatorManager.navigationType = .slide_push
         }) { (error) in
             print(error)
-            Auth.auth().createUser(withEmail: self.emailTextField.text!, password: self.passTextField.text!) { (user, error) in
-                if error == nil {
-                    // do something
-                } else {
-                    if let errCode = AuthErrorCode(rawValue: error!._code) {
-                        switch errCode {
-                        case .invalidEmail:
-                            self.showAlert("メールアドレスの形式が違います。")
-                        case .emailAlreadyInUse:
-                            self.showAlert("このメールアドレスは既に使われています。")
-                        case .weakPassword:
-                            self.showAlert("パスワードは6文字以上で入力してください。")
-                        default:
-                            self.showAlert("エラーが起きました。しばらくしてから再度お試しください。")
-                        }
-                    }
-                }
-            }
+            self.present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: true, completion: nil)
+//            Auth.auth().createUser(withEmail: self.emailTextField.text!, password: self.passTextField.text!) { (user, error) in
+//                if error == nil {
+//                    // do something
+//                } else {
+//                    if let errCode = AuthErrorCode(rawValue: error!._code) {
+//                        switch errCode {
+//                        case .invalidEmail:
+//                            self.showAlert("メールアドレスの形式が違います。")
+//                        case .emailAlreadyInUse:
+//                            self.showAlert("このメールアドレスは既に使われています。")
+//                        case .weakPassword:
+//                            self.showAlert("パスワードは6文字以上で入力してください。")
+//                        default:
+//                            self.showAlert("エラーが起きました。しばらくしてから再度お試しください。")
+//                        }
+//                    }
+//                }
+//            }
         }
     }
     
@@ -78,10 +79,10 @@ extension SignUpViewController {
 
 // MARK: - method
 extension SignUpViewController {
-    func showAlert(_ message: String) {
-        let alertController = UIAlertController(title: "新規登録に失敗しました", message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
-    }
+//    func showAlert(_ message: String) {
+//        let alertController = UIAlertController(title: "新規登録に失敗しました", message: message, preferredStyle: .alert)
+//        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//        self.present(a, animated: true, completion: nil)
+//    }
 }
 

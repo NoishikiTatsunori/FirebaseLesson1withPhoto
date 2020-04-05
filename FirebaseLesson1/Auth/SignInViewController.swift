@@ -17,22 +17,23 @@ class SignInViewController: BaseViewController {
     @IBAction func touchedSignInButton(_ sender: UIButton) {
         UserModel.signIn(email: emailTextField.text ?? "", pass: passwordTextField.text ?? "", failure: { (error) in
             print(error)
-            Auth.auth().createUser(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { (user, error) in
-                if error == nil {
-                    // do something
-                } else {
-                    if let errCode = AuthErrorCode(rawValue: error!._code) {
-                        switch errCode {
-                        case .invalidEmail:
-                            self.showAlert("メールアドレスか見つかりません。")
-                        case .wrongPassword:
-                            self.showAlert("メールアドレスとパスワードの組み合わせが一致しません。")
-                        default:
-                            self.showAlert("エラーが起きました。しばらくしてから再度お試しください。")
-                        }
-                    }
-                }
-            }
+            self.present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: true, completion: nil)
+//            Auth.auth().createUser(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { (user, error) in
+//                if error == nil {
+//                    // do something
+//                } else {
+//                    if let errCode = AuthErrorCode(rawValue: error!._code) {
+//                        switch errCode {
+//                        case .invalidEmail:
+//                            self.showAlert("メールアドレスか見つかりません。")
+//                        case .wrongPassword:
+//                            self.showAlert("メールアドレスとパスワードの組み合わせが一致しません。")
+//                        default:
+//                            self.showAlert("エラーが起きました。しばらくしてから再度お試しください。")
+//                        }
+//                    }
+//                }
+//            }
         }) {
             let vc = MypageViewController()
             self.navigationController?.pushViewController(vc, animated: true)
@@ -77,10 +78,10 @@ extension SignInViewController {
 
 // MARK: - method
 extension SignInViewController {
-    func showAlert(_ message: String) {
-        let alertController = UIAlertController(title: "ログインに失敗しました", message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
-    }
+//    func showAlert(_ message: String) {
+//        let alertController = UIAlertController(title: "ログインに失敗しました", message: message, preferredStyle: .alert)
+//        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//        self.present(alertController, animated: true, completion: nil)
+//    }
 }
 
