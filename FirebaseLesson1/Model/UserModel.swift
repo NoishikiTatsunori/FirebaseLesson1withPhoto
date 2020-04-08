@@ -137,9 +137,9 @@ extension UserModel {
             DBRef = Database.database().reference().child(PATH).child(uid)
             let param = setParameter(request: request)
             DBRef.updateChildValues(param) { error, query in
-//                if let error = error {
-//                 failure(error.localizedDescription)
-//                }
+                if let error = error {
+                 failure(error.localizedDescription)
+                }
 //                if let error = error {
 //                    if let errCode = AuthErrorCode(rawValue: error._code) {
 //                        switch errCode {
@@ -153,9 +153,9 @@ extension UserModel {
 //                            failure("エラーが起きました。\nしばらくしてから再度お試しください。")
 //                        }
 //                    }
-//                   else {
-//                    success()
-//                }
+                   else {
+                    success()
+                }
             }
         }
     }
