@@ -24,7 +24,7 @@ class SignUpViewController: BaseViewController {
             self.animatorManager.navigationType = .slide_push
         }) { (error) in
             print(error)
-            self.present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: true, completion: nil)
+            self.alert(message: error)
 //            Auth.auth().createUser(withEmail: self.emailTextField.text!, password: self.passTextField.text!) { (user, error) in
 //                if error == nil {
 //                    // do something
@@ -82,7 +82,7 @@ extension SignUpViewController {
 //    func showAlert(_ message: String) {
 //        let alertController = UIAlertController(title: "新規登録に失敗しました", message: message, preferredStyle: .alert)
 //        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//        self.present(a, animated: true, completion: nil)
+//        self.present(alertController, animated: true, completion: nil)
 //    }
 }
 

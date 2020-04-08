@@ -17,7 +17,7 @@ class SignInViewController: BaseViewController {
     @IBAction func touchedSignInButton(_ sender: UIButton) {
         UserModel.signIn(email: emailTextField.text ?? "", pass: passwordTextField.text ?? "", failure: { (error) in
             print(error)
-            self.present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: true, completion: nil)
+            self.alert(message: error)
 //            Auth.auth().createUser(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { (user, error) in
 //                if error == nil {
 //                    // do something

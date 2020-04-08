@@ -257,7 +257,7 @@ extension UserModel {
             if let error = error {
                 if let errCode = AuthErrorCode(rawValue: error._code) {
                     switch errCode {
-                    case .invalidEmail:
+                    case .userNotFound:
                         failure("メールアドレスか見つかりません")
                     case .wrongPassword:
                         failure("メールアドレスとパスワードの組み合わせが一致しません。")
