@@ -10,6 +10,8 @@ target 'FirebaseLesson1' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
+  pod 'Firebase/MLNaturalLanguage'
+  pod 'Firebase/MLNLLanguageID'
   # Pods for FirebaseLesson1
 
 end
