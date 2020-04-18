@@ -108,7 +108,7 @@ extension MypageSettingViewController {
         }
     }
     func setIcon() {
-        iconImageView.layer.cornerRadius = 35
+        iconImageView.layer.cornerRadius = 37
         iconImageView.layer.masksToBounds = true
     }
 }

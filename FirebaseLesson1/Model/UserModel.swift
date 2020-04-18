@@ -236,6 +236,8 @@ extension UserModel {
                         failure("このメールアドレスはすでに使われています。")
                     case .weakPassword:
                         failure("パスワードは6文字以上で入力してください。")
+                    case .missingEmail:
+                        failure("メールアドレスが入力されていません。")
                     default:
                         failure("エラーが起きました。\nしばらくしてから再度お試しください。")
                     }
@@ -267,6 +269,8 @@ extension UserModel {
                                    failure("メールアドレスが見つかりません。")
                                case .wrongPassword:
                                    failure("メールアドレスとパスワードの組み合わせが正しくありません。")
+                               case .invalidEmail:
+                                   failure("メールアドレスの形式が違います。")
                                default:
                                    failure("エラーが起きました。\nしばらくしてから再度お試しください。")
                                }
