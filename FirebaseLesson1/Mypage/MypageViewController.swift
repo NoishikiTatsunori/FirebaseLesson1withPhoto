@@ -30,6 +30,7 @@ extension MypageViewController {
     override func loadView() {
         super.loadView()
         getModel()
+        setIcon()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -67,6 +68,10 @@ extension MypageViewController {
                 self.iconImageView.image = UIImage(named: "no_icon")
             }
         }
+    }
+    func setIcon() {
+        iconImageView.layer.cornerRadius = 35
+        iconImageView.layer.masksToBounds = true
     }
 }
 

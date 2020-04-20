@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -66,6 +66,13 @@
                         <action selector="touchedChangeIconButton:" destination="-1" eventType="touchUpInside" id="uXR-gn-0E3"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KM1-uO-c5x">
+                    <rect key="frame" x="100" y="636" width="214" height="30"/>
+                    <state key="normal" title="キャンセル"/>
+                    <connections>
+                        <action selector="touchedCancel:" destination="-1" eventType="touchUpInside" id="xBo-qd-6F7"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -79,12 +86,15 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ulw-RQ-96Q" secondAttribute="trailing" constant="50" id="ULO-X4-PHo"/>
                 <constraint firstItem="ozk-hu-75J" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WCd-kB-Kfl"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cpu-GF-hVY" secondAttribute="trailing" constant="50" id="Wcs-Ja-yHz"/>
+                <constraint firstItem="KM1-uO-c5x" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="aWL-eG-g5u"/>
                 <constraint firstItem="mL0-q6-wRx" firstAttribute="centerX" secondItem="0Y9-rJ-3UO" secondAttribute="centerX" id="bWW-Et-fGs"/>
                 <constraint firstItem="iB8-mu-xsj" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="jgB-pO-mG4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qLy-m3-cSR" secondAttribute="trailing" constant="50" id="kBq-LZ-Ltc"/>
                 <constraint firstItem="mL0-q6-wRx" firstAttribute="top" secondItem="ozk-hu-75J" secondAttribute="bottom" constant="30" id="n6Q-a1-Qm1"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KM1-uO-c5x" secondAttribute="trailing" constant="100" id="oF6-te-GYJ"/>
                 <constraint firstItem="cpu-GF-hVY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="raw-NG-aOL"/>
                 <constraint firstItem="qLy-m3-cSR" firstAttribute="top" secondItem="cpu-GF-hVY" secondAttribute="bottom" constant="50" id="t2Y-tD-p5r"/>
+                <constraint firstItem="KM1-uO-c5x" firstAttribute="top" secondItem="qLy-m3-cSR" secondAttribute="bottom" constant="50" id="tvZ-uo-u2y"/>
                 <constraint firstItem="0Y9-rJ-3UO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="uXl-vG-a9V"/>
                 <constraint firstItem="ulw-RQ-96Q" firstAttribute="top" secondItem="0Y9-rJ-3UO" secondAttribute="bottom" constant="50" id="ubG-tk-eRJ"/>
                 <constraint firstItem="cpu-GF-hVY" firstAttribute="top" secondItem="ulw-RQ-96Q" secondAttribute="bottom" constant="100" id="zGm-6l-euv"/>

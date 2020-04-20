@@ -42,6 +42,9 @@ class MypageSettingViewController: BaseViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
+    @IBAction func touchedCancel(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
@@ -56,6 +59,7 @@ extension MypageSettingViewController {
     override func loadView() {
         super.loadView()
         setTextField()
+        setIcon()
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -72,6 +76,7 @@ extension MypageSettingViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
+    
 }
 
 // MARK: - Protocol
@@ -101,6 +106,10 @@ extension MypageSettingViewController {
         } else {
             self.iconImageView.image = UIImage(named: "no_icon")
         }
+    }
+    func setIcon() {
+        iconImageView.layer.cornerRadius = 37
+        iconImageView.layer.masksToBounds = true
     }
 }
 

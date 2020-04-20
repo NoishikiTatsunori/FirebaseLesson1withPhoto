@@ -11,6 +11,8 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
+
+
 class UserModel{
     fileprivate static let PATH = "user"
     fileprivate static let photoSizeLimit = 4000000
@@ -136,8 +138,22 @@ extension UserModel {
             let param = setParameter(request: request)
             DBRef.updateChildValues(param) { error, query in
                 if let error = error {
-                    failure(error.localizedDescription)
-                } else {
+                 failure(error.localizedDescription)
+                }
+//                if let error = error {
+//                    if let errCode = AuthErrorCode(rawValue: error._code) {
+//                        switch errCode {
+//                        case .invalidEmail:
+//                            failure("メールアドレスの形式が違います。")
+//                        case .emailAlreadyInUse:
+//                            failure("このメールアドレスはすでに使われています。")
+//                        case .weakPassword:
+//                            failure("パスワードは6文字以上で入力してください。")
+//                        default:
+//                            failure("エラーが起きました。\nしばらくしてから再度お試しください。")
+//                        }
+//                    }
+                   else {
                     success()
                 }
             }
@@ -212,7 +228,20 @@ extension UserModel {
             let request = UserModel()
             request.fcm_token = token
             if let error = error {
-                failure(error.localizedDescription)
+                if let errCode = AuthErrorCode(rawValue: error._code) {
+                    switch errCode {
+                    case .invalidEmail:
+                        failure("メールアドレスの形式が違います。")
+                    case .emailAlreadyInUse:
+                        failure("このメールアドレスはすでに使われています。")
+                    case .weakPassword:
+                        failure("パスワードは6文字以上で入力してください。")
+                    case .missingEmail:
+                        failure("メールアドレスが入力されていません。")
+                    default:
+                        failure("エラーが起きました。\nしばらくしてから再度お試しください。")
+                    }
+                }
             }
             if let _ = user {
                 self.update(request: request, success: {})
@@ -220,21 +249,46 @@ extension UserModel {
             }
         }
     }
+//    static func showAlert(_ message: String) {
+//        let alertController = UIAlertController(title: "新規登録に失敗しました", message: message, preferredStyle: .alert)
+//        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//        self.present(alertController, animated: true, completion: nil)
+//    }
+    
+    
     
     static func signIn(email: String, pass: String, failure:@escaping (String) -> Void, success:@escaping () -> Void){
         Auth.auth().signIn(withEmail: email, password: pass) { user, error in
             let token = UserDefaults.standard.object(forKey: "fcm_token") as? String
             let request = UserModel()
             request.fcm_token = token
-            if let error = error {
-                failure(error.localizedDescription)
-            }
+             if let error = error {
+                           if let errCode = AuthErrorCode(rawValue: error._code) {
+                               switch errCode {
+                               case .userNotFound:
+                                   failure("メールアドレスが見つかりません。")
+                               case .wrongPassword:
+                                   failure("メールアドレスとパスワードの組み合わせが正しくありません。")
+                               case .invalidEmail:
+                                   failure("メールアドレスの形式が違います。")
+                               default:
+                                   failure("エラーが起きました。\nしばらくしてから再度お試しください。")
+                               }
+                           }
+                       }
             if let _ = user {
                 self.update(request: request, success: {})
                 success()
             }
         }
+        
     }
+    
+//    static func showAlert2(_ message: String) {
+//        let alertController = UIAlertController(title: "ログインに失敗しました", message: message, preferredStyle: .alert)
+//        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//        //self.present(alertController, animated: true, completion: nil)
+//    }
     
     static func logOut(success: @escaping () -> Void) {
         do {
